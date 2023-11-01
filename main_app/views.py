@@ -1,4 +1,6 @@
 from django.shortcuts import render
+# import from the Django framework
+from django.views.generic.edit import CreateView
 # import Finch model   
 from .models import Finch
 
@@ -36,3 +38,8 @@ def finches_detail(request, finch_id):
     return render(request, 'finches/detail.html', {
         'finch': finch
     })
+
+class FinchCreate(CreateView):
+    model = Finch
+    fields = '__all__'
+  

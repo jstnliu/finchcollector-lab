@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>There's More to the Code...</h1>
+    <!-- leave action empty to make the form post the same url as displaying it -->
+    <form action="" method="POST">
+        <!-- required security token -->
+        {% csrf_token %}
+        <table>
+           {{ form.as_table }} 
+        </table>
+        <input type="submit" value="Submit" class="btn">
+    </form>
+
+{% endblock %}
