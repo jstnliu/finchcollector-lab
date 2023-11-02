@@ -2,7 +2,11 @@
 
 {% block content %}
 
-    <h1>There's More to the Code...</h1>
+{% if object %}
+    <h1>There's More to the Code...<span class="teal-text">{{object.name}}</span></h1>
+  {% else %}
+    <h1>Add Finch</h1>
+  {% endif %}
     <!-- leave action empty to make the form post the same url as displaying it -->
     <form action="" method="POST">
         <!-- required security token -->
