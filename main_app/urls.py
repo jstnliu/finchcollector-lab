@@ -22,4 +22,6 @@ urlpatterns = [
     path('eggs/create/', views.EggCreate.as_view(), name = 'eggs_create'),
     path('eggs/<int:pk>/update/', views.EggUpdate.as_view(), name = 'eggs_update'),
     path('eggs/<int:pk>/delete/', views.EggDelete.as_view(), name = 'eggs_delete'),
+    # PHOTO FUNCTION
+    path('finches/<int:finch_id>/add_photo/', views.add_photo, name = 'add_photo'),
 ]
