@@ -11,11 +11,25 @@ MEALS = (
     ('D', 'Dinner'),
 )
 
+class Egg(models.Model):
+    name = models.CharField(max_length = 50)
+    color = models.CharField(max_length = 20)
+
+    def __str__(self):
+        return self.name
+    
+    def get_absolute_url(self):
+        return reverse('eggs_detail', kwargs = {
+            'pk': self.id
+        })
+
 class Finch(models.Model):
     name = models.CharField(max_length = 100)
     breed = models.CharField(max_length = 100)
     description = models.TextField(max_length = 1000)
     age = models.IntegerField()
+    # M:M relationship
+    eggs = models.ManyToManyField(Egg)
 
     def __str__(self):
         return f'{self.name} ({self.breed})'

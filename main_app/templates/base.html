@@ -15,14 +15,16 @@
     <header class="navbar-fixed">
         <nav>
             <div class="nav-wrapper blue-grey darken-1">
-            <ul>
-                <li><a href="{% url 'home' %}" class="left brand-logo">&nbsp;&nbsp;Finch Collector</a></li>
-            </ul>
-            <ul class="right">
-                <li><a href="{% url 'about' %}">About</a></li>
-                <li><a href="{% url 'finches_create' %}">Add a Finch</a></li>
-                <li><a href="{% url 'index' %}">View Recorded Finches</a></li>
-            </ul>
+                <ul>
+                    <li><a href="{% url 'home' %}" class="left brand-logo">&nbsp;&nbsp;Finch Collector</a></li>
+                </ul>
+                <ul class="right">
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'eggs_create' %}">Add Toy</a></li>
+                    <li><a href="{% url 'eggs_index' %}">View All Eggs</a></li>
+                    <li><a href="{% url 'finches_create' %}">Add a Finch</a></li>
+                    <li><a href="{% url 'index' %}">View Recorded Finches</a></li>
+                </ul>
             </div>
         </nav>
     </header>

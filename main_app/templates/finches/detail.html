@@ -50,6 +50,54 @@
     </div>
 </div>
 
+<hr>
+<div class="row">
+    <div class="col s6">
+        <h3>{{ finch.name }}'s Eggs</h3>
+        {% if finch.eggs.count %}
+            {% for egg in finch.eggs.all %}
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">
+                            A <span style="color: {{ egg.color }}">{{ egg.color }}</span> {{ egg.name }}
+                        </span>                       
+                    </div>
+                    <div class="card-action">
+                        <form action="{% url 'unassoc_egg' finch.id egg.id %}" method="POST">
+                          {% csrf_token %}
+                          <button type="submit" class="btn">Remove</button>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h5>No Eggs ｡°(°.◜ᯅ◝°)°｡</h5>
+        {% endif %}
+    </div>
+    <div class="col s6">
+        <h3>Available Eggs</h3>
+        {% if eggs.count %}
+            {% for egg in eggs.all %}
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">
+                        A <span style="color: {{ egg.color }}">{{ egg.color }}</span> {{ egg.name }}
+                        </span>
+                    </div>
+                    <div class="card-action">
+                        <form action="{% url 'assoc_egg' finch.id egg.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="btn">Add</button>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h5>{{finch.name}} Already Has All Eggs Available</h5>
+        {% endif %}
+    </div>
+</div>
+
 <script>
     const dateEl = document.getElementById('id_date');
     // M is Materialize's global variable
